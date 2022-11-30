@@ -8,7 +8,7 @@ export default ({ loading, components }) => {
 
   return !loading || hasMounted ? (
     components?.length > 0 ? (
-      components?.map(component => (
+      components?.sort((a, b) => { return a.title > b.title}).map(component => (
         <Component key={component.id} component={component} />
       ))
     ) : (
