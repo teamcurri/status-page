@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import moment from "moment";
+import { useState, useEffect } from 'react'
+import moment from 'moment'
 
 export default (refetch, updateTimeAgoDep) => {
   const [timeAgo, setTimeAgo] = useState(
     moment(
       new Date(localStorage.getItem(`issueStatusLastFetchcomponent`))
     ).fromNow()
-  );
+  )
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,29 +19,29 @@ export default (refetch, updateTimeAgoDep) => {
             moment(
               new Date(localStorage.getItem(`issueStatusLastFetchcomponent`))
             ).fromNow()
-          );
-        });
+          )
+        })
       } else {
         setTimeAgo(
           moment(
             new Date(localStorage.getItem(`issueStatusLastFetchcomponent`))
           ).fromNow()
-        );
+        )
       }
-    }, 1000);
+    }, 1000)
 
     return () => {
-      clearInterval(interval);
-    };
-  }, [refetch]);
+      clearInterval(interval)
+    }
+  }, [refetch])
 
   useEffect(() => {
     setTimeAgo(
       moment(
         new Date(localStorage.getItem(`issueStatusLastFetchcomponent`))
       ).fromNow()
-    );
-  }, [updateTimeAgoDep]);
+    )
+  }, [updateTimeAgoDep])
 
-  return [timeAgo];
-};
+  return [timeAgo]
+}

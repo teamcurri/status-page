@@ -1,25 +1,25 @@
-import React from "react";
-import "./App.css";
-import styled from "styled-components";
-import Status from "./status";
-import useIssues from "./useIssues";
-import Header from "./header";
-import Components from "./components";
-import Incidents from "./incidents";
-import Footer from "./footer";
+import React from 'react'
+import './App.css'
+import styled from 'styled-components'
+import Status from './status'
+import useIssues from './useIssues'
+import Header from './header'
+import Components from './components'
+import Incidents from './incidents'
+import Footer from './footer'
 
 const Container = styled.div`
   max-width: 1008px;
   padding: 16px;
   margin: 16px auto;
-`;
+`
 
 const ComponentsContainer = styled.div`
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
   border-radius: 3px;
   background-color: white;
   padding: 16px;
-`;
+`
 
 export default () => {
   // loading, errors, results, refetch
@@ -28,13 +28,9 @@ export default () => {
     componentsError,
     componentsResults,
     componentsRefetch,
-  ] = useIssues("component");
-  const [
-    incidentsLoading,
-    incidentsError,
-    incidentsResults,
-    incidentsRefetch,
-  ] = useIssues("incident");
+  ] = useIssues('component')
+  const [incidentsLoading, incidentsError, incidentsResults, incidentsRefetch] =
+    useIssues('incident')
 
   return (
     <Container>
@@ -48,8 +44,8 @@ export default () => {
           }}
           components={componentsResults}
           refetch={() => {
-            componentsRefetch();
-            incidentsRefetch();
+            componentsRefetch()
+            incidentsRefetch()
           }}
         />
         <Components
@@ -60,5 +56,5 @@ export default () => {
       <Incidents loading={incidentsLoading} incidents={incidentsResults} />
       <Footer />
     </Container>
-  );
-};
+  )
+}

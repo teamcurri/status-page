@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Status from "./status";
+import React from 'react'
+import styled from 'styled-components'
+import Status from './status'
 
 const Component = styled.div`
   background-color: #f7f8f9;
@@ -13,12 +13,12 @@ const Component = styled.div`
   :not(:last-child) {
     margin-bottom: 8px;
   }
-`;
+`
 
 export default ({ component }) => {
   return (
     <Component>
       {component.title} <Status labels={component.labels} />
     </Component>
-  );
-};
+  )
+}

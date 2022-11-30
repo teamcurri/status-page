@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import useStatus from "./useStatus";
-import useRefetch from "./useRefetch";
+import React from 'react'
+import styled from 'styled-components'
+import useStatus from './useStatus'
+import useRefetch from './useRefetch'
 
 const StatusBar = styled.div`
-  background-color: ${(props) =>
-    props.backgroundColour ? props.backgroundColour : "#b1b1b1"};
+  background-color: ${props =>
+    props.backgroundColour ? props.backgroundColour : '#b1b1b1'};
   color: white;
   padding: 16px;
   border-radius: 3px;
@@ -15,13 +15,13 @@ const StatusBar = styled.div`
   align-items: center;
   flex-wrap: wrap;
   transition: 0.3s;
-`;
+`
 
 const Status = styled.h2`
   font-size: 20px;
   margin: 0;
   font-weight: normal;
-`;
+`
 
 const Reload = styled.button`
   background-color: transparent;
@@ -31,17 +31,17 @@ const Reload = styled.button`
   cursor: pointer;
   text-align: right;
   padding: 0;
-`;
+`
 
 const Code = styled.code`
   white-space: pre-wrap;
   display: block;
-`;
+`
 
 // TODO: change all systems status based on current status of all components
 export default ({ loading, error, components, refetch }) => {
-  const [status] = useStatus(components);
-  const [timeAgo] = useRefetch(refetch, loading);
+  const [status] = useStatus(components)
+  const [timeAgo] = useRefetch(refetch, loading)
 
   return (
     <>
@@ -57,8 +57,8 @@ export default ({ loading, error, components, refetch }) => {
       )}
       <StatusBar backgroundColour={status?.backgroundColour}>
         <Status>{status?.message}</Status>
-        <Reload onClick={refetch}>{loading ? "reloading" : timeAgo}</Reload>
+        <Reload onClick={refetch}>{loading ? 'reloading' : timeAgo}</Reload>
       </StatusBar>
     </>
-  );
-};
+  )
+}
