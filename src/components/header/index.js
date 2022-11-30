@@ -8,7 +8,7 @@ const Title = styled.h1`
 `
 
 const Logo = styled.img`
-  max-width: 350px;
+  max-width: 250px;
 `
 
 const Header = styled.div`
